@@ -22,3 +22,7 @@ Duplicate passwords in a batch are regenerated up to `maxDuplicateRetries` times
 Passwords are never stored, logged, or transmitted. Only the theme preference is saved in localStorage.
 Clearing the display does not erase the system clipboard or guarantee removal from browser memory.
 Generated passwords are not saved anywhere: use a password manager.
+
+## Ads
+- Google AdSense: edit `src/config/adsConfig.js`. Set `ADS_CLIENT_ID` (your `ca-pub-…`), then per placement (`header`, `belowGenerator`, `footer`) set `enabled: true` and your `slotId`. Placeholder values render nothing.
+- Custom ads: edit `src/config/customAdsConfig.js`. Rebuild and redeploy after changes.

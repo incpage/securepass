@@ -4,6 +4,8 @@ import { CONFIG } from './config/passwordConfig.js';
 import { generateMany, validateOptions, poolSize } from './utils/passwordGenerator.js';
 import { validateQuantity, ERROR_MESSAGES as MSG } from './utils/validators.js';
 import { assessStrength } from './utils/passwordStrength.js';
+import GoogleAd from './components/ads/GoogleAd.jsx';
+import CustomAd from './components/ads/CustomAd.jsx';
 
 const initial = { length: CONFIG.defaultLength, ...CONFIG.defaultOptions };
 
@@ -47,9 +49,10 @@ export default function App() {
   return (
     <div className={dark ? 'app dark' : 'app'}>
       <header>
-        <h1><ShieldCheck aria-hidden="true" /> SecurePass</h1>
+        <h1><img src="/logo.jpeg" alt="incpage" height="40" /> <ShieldCheck aria-hidden="true" /> SecurePass</h1>
         <button className="icon" onClick={toggleTheme} aria-label="Toggle dark mode">{dark ? <Sun /> : <Moon />}</button>
       </header>
+      <GoogleAd placement="header" /><CustomAd placement="header" />
       <main>
         <section className="card" aria-labelledby="settings">
           <h2 id="settings">Password settings</h2>
@@ -79,6 +82,7 @@ export default function App() {
           {error && <p role="alert" className="error">{error}</p>}
         </section>
 
+        <GoogleAd placement="belowGenerator" /><CustomAd placement="belowGenerator" />
         {list.length > 0 && (
           <section className="card" aria-labelledby="out">
             <h2 id="out">Your password{list.length > 1 ? 's' : ''}</h2>
@@ -110,6 +114,8 @@ export default function App() {
         )}
         <p className="hint">Privacy: passwords are generated in your browser using the Web Crypto API. This app does not send or store them. Save them in a password manager; clearing the screen does not erase the clipboard.</p>
       </main>
+      <GoogleAd placement="footer" /><CustomAd placement="footer" />
+      <footer>© {new Date().getFullYear()} incpage · SecurePass</footer>
     </div>
   );
 }
