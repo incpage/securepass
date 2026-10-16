@@ -1,7 +1,17 @@
-// GOOGLE ADSENSE: paste your values here. These are placeholders, not real credentials.
-export const ADS_CLIENT_ID = 'ca-pub-XXXXXXXXXXXXXXXX'; // <-- your AdSense publisher ID
+
+export const ADS_CLIENT_ID = 'ca-pub-1249143170747032';
+
+const slot = (slotId, minHeight) => ({
+  enabled: true, // Enable after configuring and verifying your ad units
+  clientId: ADS_CLIENT_ID,
+  slotId,
+  format: 'auto',
+  responsive: true,
+  minHeight,
+});
+
 export const adsConfig = {
-  header:         { enabled: false, slotId: '0000000000', format: 'auto', responsive: true },
-  belowGenerator: { enabled: false, slotId: '0000000000', format: 'auto', responsive: true },
-  footer:         { enabled: false, slotId: '0000000000', format: 'auto', responsive: true },
+  header: slot('2880470238', 90),
+  belowGenerator: slot('2880470238', 250),
+  footer: slot('2880470238', 90),
 };
